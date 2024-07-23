@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import Header from "@/container/Header";
+import Navigation from "@/container/Navigation";
+
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -12,8 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html>
+      <body className="mx-auto h-auto max-w-[390px]">
+        <Header />
+        <main className="w-full overflow-hidden bg-[#F7F9FA]">{children}</main>
+        <Navigation />
+      </body>
     </html>
   );
 }

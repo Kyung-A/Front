@@ -1,0 +1,17 @@
+[
+    {
+         "image": "/banner1.jpg",
+         "description": "오픈 기념 이벤트",
+         "title": "트리비와 함께\n안전하게 동행을 찾아봐요!"
+    },
+    {
+        "image": "/banner2.jpg",
+        "description": "오픈 기념 이벤트",
+        "title": "트리비와 함께\n안전하게 동행을 찾아봐요!"
+   },
+   {
+    "image": "/banner3.jpg",
+    "description": "오픈 기념 이벤트",
+    "title": "트리비와 함께\n안전하게 동행을 찾아봐요!"
+    }
+]

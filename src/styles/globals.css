@@ -1,3 +1,47 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    color: #192029;
+} 
+
+img {
+    max-width: initial;
+}
+
+.bg-gradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 42.19%, rgba(0, 0, 0, 0.52) 100%), transparent 50% / cover no-repeat;
+}
+
+.swiper-pagination.swiper-pagination-fraction {
+    @apply flex items-center justify-center w-auto leading-5 px-3 bg-[#E2E7EB] rounded-full left-auto right-5 bottom-5 shrink-0 opacity-70;
+    & span {
+        @apply font-semibold text-xs text-[#495565] px-[2px];
+    }
+    & .swiper-pagination-current {
+        @apply text-blue-500;
+    }
+}
+
+.swiper.swiper-initialized.swiper-horizontal.swiper-free-mode.swiper-backface-hidden {
+    padding-right: 20px;
+    overflow: initial !important;
+}
+
+
+
+.swiper-free-mode .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    @apply -bottom-10
+}
+
+.swiper-pagination-bullet {
+    background-color: #E2E7EB !important;
+    opacity: 1 !important;
+    &.swiper-pagination-bullet-active {
+        background-color: #226AFA !important;
+    }
+}
