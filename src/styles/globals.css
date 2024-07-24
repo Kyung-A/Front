@@ -45,3 +45,23 @@ img {
         background-color: #226AFA !important;
     }
 }
+
+.onboarding {
+    background-image: url("/onboarding-bg.png");
+    background-size: 100%;
+    background-position: center 65%;
+    background-repeat: no-repeat;
+}
+
+.progress::-webkit-progress-bar {
+    background-color: #E6E8EA;
+    height: 4px;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress::-webkit-progress-value {
+    background-color: #5773FF;
+    height: 4px;
+    border-radius: 0px;
+}
