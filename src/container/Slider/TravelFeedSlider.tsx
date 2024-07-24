@@ -38,8 +38,8 @@ export default function TravelFeedSlider({ data }: Slider) {
         >
           <Link href="#">
             <header className="box-border flex w-full items-center p-4">
-              <Link
-                href="#"
+              <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -53,17 +53,17 @@ export default function TravelFeedSlider({ data }: Slider) {
                   className="w-full"
                   alt="profile"
                 />
-              </Link>
+              </button>
               <div className="ml-3">
-                <Link
-                  href="#"
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
                   className="text-base font-medium"
                 >
                   {post.userId}
-                </Link>
+                </button>
                 <div className="flex items-center">
                   <Image
                     src="/location.png"

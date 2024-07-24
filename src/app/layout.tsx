@@ -19,7 +19,9 @@ export default function RootLayout({
     <html>
       <body className="mx-auto h-auto max-w-[390px]">
         <Header />
-        <main className="w-full overflow-hidden bg-[#F7F9FA]">{children}</main>
+        <main className="min-h-[calc(100vh-144px)] w-full overflow-hidden bg-[#F7F9FA]">
+          {children}
+        </main>
         <Navigation />
       </body>
     </html>
