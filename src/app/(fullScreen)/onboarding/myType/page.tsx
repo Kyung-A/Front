@@ -62,7 +62,7 @@ export default function MyType() {
           ></div>
         </p>
       </div>
-      <div className="sticky bottom-0 h-20 w-full bg-[#F7F9FA] px-5 shadow-[4px_0px_12px_0px_rgba(0,0,0,0.04)]">
+      <div className="sticky bottom-0 flex h-20 w-full flex-col items-center justify-center bg-[#F7F9FA] px-5 shadow-[4px_0px_12px_0px_rgba(0,0,0,0.04)]">
         <Link
           href="/home"
           style={{ backgroundColor: myType?.color }}

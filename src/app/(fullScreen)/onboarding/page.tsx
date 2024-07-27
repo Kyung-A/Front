@@ -3,6 +3,7 @@ import { useState } from "react";
 import onboarding from "@/json/onboarding.json";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 interface StepComp {
   onClickNext: () => void;
@@ -47,6 +48,20 @@ function StepForm({
   step,
 }: StepComp) {
   const router = useRouter();
+
+  // TODO
+  async function onSubmitType(type: string) {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_API}/s3/image`,
+        { triptype: type },
+      );
+
+      return console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="relative box-border flex h-screen w-full flex-col px-5">
@@ -108,7 +123,8 @@ function StepForm({
               case "2, 1":
                 type = "d";
             }
-            router.push(`/onboarding/myType?type=${type}`);
+            onSubmitType(type as string);
+            return router.push(`/onboarding/myType?type=${type}`);
           }
         }}
         className="mb-14 mt-auto box-border w-full rounded-xl bg-[#226AFA] py-4 text-xl font-semibold text-white"

@@ -4,7 +4,9 @@ import Link from "next/link";
 import TravelFeedSlider from "@/container/Slider/TravelFeedSlider";
 import FullSlider from "@/container/Slider/FullSlider";
 import images from "@/json/mainBanner.json";
+import TriviFeedSlider from "@/container/Slider/TriviFeedSlider";
 import posts from "@/json/post.json";
+import posts2 from "@/json/post2.json";
 
 export default function Main() {
   return (
@@ -59,7 +61,7 @@ export default function Main() {
           </Link>
         </div>
         <div className="pl-5">
-          <TravelFeedSlider data={posts} />
+          <TriviFeedSlider data={posts2} />
         </div>
       </section>
     </>

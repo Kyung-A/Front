@@ -1,0 +1,32 @@
+[
+  {
+    "id": "agree-1",
+    "title": "(필수) 만 14세 이상입니다.",
+    "href": "",
+    "checked": false
+  },
+  {
+    "id": "agree-2",
+    "title": "(필수) 서비스 이용약관에 동의",
+    "href": "https://jin26.notion.site/4a4523ad6e1b4a94a388e136df8e3bc3",
+    "checked": false
+  },
+  {
+    "id": "agree-3",
+    "title": "(필수) 개인정보 수집 이용에 동의",
+    "href": "https://jin26.notion.site/f6a3fc455c8c45bfacd9cd700b7c8b37?pvs=4",
+    "checked": false
+  },
+  {
+    "id": "agree-4",
+    "title": "(선택) 홍보 및 마케팅 이용에 동의",
+    "href": "https://jin26.notion.site/8470ecc22f35490695f62885bacb204f?pvs=4",
+    "checked": false
+  },
+  {
+    "id": "agree-5",
+    "title": "(선택) 마케팅 개인정보 제3자 제동 동의",
+    "href": "https://jin26.notion.site/3-7e99eb8c1a5e414d9de0995c255a88a7?pvs=4",
+    "checked": false
+  }
+]

@@ -21,7 +21,7 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <Link href="/list" className="flex flex-col items-center gap-2">
             <div className="w-6">
               <Image
                 src="/list.png"
@@ -36,7 +36,7 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="/map">
+          <Link href="/accompany">
             <div className="w-12">
               <Image
                 src="/add.png"
@@ -65,7 +65,7 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <Link href="/mypage" className="flex flex-col items-center gap-2">
             <div className="w-6">
               <Image
                 src="/my.png"
