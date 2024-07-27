@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 import Image from "next/image";
-import _ from "loadsh";
 import { SetStateAction, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -101,7 +100,7 @@ function Step2({ onClickNextStep, onClickPrevStep, setFile }: Step) {
     await uploadToS3(imageFile);
   }
 
-  async function uploadToS3(file) {
+  async function uploadToS3(file: any) {
     const formData = new FormData();
     formData.append("image", file);
     try {
@@ -253,15 +252,30 @@ export default function Mypage() {
 
   async function onSubmitOCR(e: any) {
     e.preventDefault();
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_LOCAL_API}/api/ocr`,
-      { data: file },
-    );
-    certification(response.data);
-    console.log(response.data);
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_LOCAL_API}/api/ocr`,
+        { data: file },
+      );
+      certification(response.data);
+      // console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  function certification(data) {}
+  async function certification(data: any) {
+    try {
+      const userInfo = window.localStorage.getItem("userInfo");
+
+      // const response = await axios.get(
+      //   `${process.env.NEXT_PUBLIC_LOCAL_API}/api/v1/users/mypage/user-email/${userInfo.email}`,
+      // );
+      // console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   function onClickNextStep() {
     setStep(step + 1);

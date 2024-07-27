@@ -30,7 +30,7 @@ export default function Login() {
       );
 
       if (response.status === 200) {
-        window.localStorage.setItem("session", response.data.sessionId);
+        // window.localStorage.setItem("userInfo", { email: response.data.email, session: response.data.email });
         router.push("/home");
       }
     } catch (error) {

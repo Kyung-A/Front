@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     setTimeout(() => {
-      const userData = window.localStorage.getItem("session");
+      const userData = window.localStorage.getItem("userInfo");
       if (!userData) {
         router.push("/signUp");
       } else {

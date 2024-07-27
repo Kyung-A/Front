@@ -17,7 +17,7 @@ function Location() {
   const [value, setChange] = useState<{ nation: string; city: string }>();
   const [isOpen, setOpen] = useState<boolean>(false);
 
-  function onChangeCountry(obj) {
+  function onChangeCountry(obj: any) {
     setChange(obj);
     setValue("nation", obj.nation);
     setValue("city", obj.city);
@@ -136,7 +136,7 @@ function Content() {
     await uploadToS3(imageFile);
   }
 
-  async function uploadToS3(file) {
+  async function uploadToS3(file: any) {
     const formData = new FormData();
     formData.append("image", file);
     try {
@@ -234,7 +234,7 @@ export default function Accompany() {
     setStep(step - 1);
   }
 
-  async function onSubmit(data) {
+  async function onSubmit(data: any) {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_SERVER_API}/api/accompany`,
