@@ -82,3 +82,7 @@ img {
     box-shadow: 0px 0px 0px 1px #3E7EFE;
     background-color: #3E7EFE;
 }
+
+.filter-color {
+    filter: invert(27%) sepia(100%) saturate(1371%) hue-rotate(205deg) brightness(107%) contrast(100%);
+}

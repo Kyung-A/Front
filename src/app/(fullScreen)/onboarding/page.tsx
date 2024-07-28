@@ -116,13 +116,18 @@ function StepForm({
             switch (result) {
               case "1, 2":
                 type = "a";
+                break;
               case "1, 1":
                 type = "b";
+                break;
               case "2, 2":
                 type = "c";
+                break;
               case "2, 1":
                 type = "d";
+                break;
             }
+
             onSubmitType(type as string);
             return router.push(`/onboarding/myType?type=${type}`);
           }

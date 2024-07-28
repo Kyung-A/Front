@@ -55,7 +55,7 @@ export default function ListDetail() {
             alt="뒤로가기"
           />
         </Link>
-        <p className="w-full text-center text-xl font-medium">본인인증</p>
+        <p className="w-full text-center text-xl font-medium">동행인증</p>
       </div>
       {post?.imgPath && (
         <Swiper
@@ -75,7 +75,7 @@ export default function ListDetail() {
               width={0}
               height={0}
               sizes="100%"
-              className="w-full -translate-y-10"
+              className="h-full w-full object-fill"
               alt="이미지"
             />
           </SwiperSlide>

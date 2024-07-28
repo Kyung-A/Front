@@ -51,7 +51,7 @@ export default function Login() {
       );
 
       if (response.status === 200) {
-        if (!response.data.verificationYn) {
+        if (!response.data.triptype) {
           router.push("/onboarding");
         } else {
           router.push("/home");
