@@ -240,8 +240,9 @@ export default function Accompany() {
         `${process.env.NEXT_PUBLIC_SERVER_API}/api/accompany`,
         data,
       );
-
-      console.log(response);
+      if (response.status === 201) {
+        router.push(`/list/${response.data.id}`);
+      }
     } catch (error) {
       console.error(error);
     }

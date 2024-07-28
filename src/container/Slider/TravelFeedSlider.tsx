@@ -8,15 +8,22 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 interface Slider {
-  data: {
-    userId: string;
-    profile: string;
-    location: string;
-    postImage: string;
-    content: string;
-  }[];
+  data:
+    | {
+        id: number;
+        userNickname?: string;
+        imgPath?: string;
+        locationName?: string;
+        postImage?: string;
+        content?: string;
+        title?: string;
+        city?: string;
+        meetingTime?: string;
+      }[]
+    | undefined;
 }
 
 export default function TravelFeedSlider({ data }: Slider) {
@@ -31,64 +38,26 @@ export default function TravelFeedSlider({ data }: Slider) {
       }}
       modules={[FreeMode, Pagination]}
     >
-      {data.map((post) => (
+      {data?.map((post) => (
         <SwiperSlide
-          key={post.userId}
+          key={post.userNickname}
           className="!w-[308px] rounded-xl bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]"
         >
-          <Link href="#">
-            <header className="box-border flex w-full items-center p-4">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-                className="w-11 overflow-hidden rounded-full"
-              >
-                <Image
-                  src={post.profile}
-                  width={0}
-                  height={0}
-                  sizes="100%"
-                  className="w-full"
-                  alt="profile"
-                />
-              </button>
-              <div className="ml-3">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                  className="text-base font-medium"
-                >
-                  {post.userId}
-                </button>
-                <div className="flex items-center">
+          <Link href={`/list/${post.id}`}>
+            <main className="w-full">
+              {post.postImage && (
+                <div className="flex h-44 w-full flex-col items-center justify-center overflow-hidden">
                   <Image
-                    src="/location.png"
-                    width={10}
-                    height={12}
-                    alt="icon"
+                    src={post.postImage}
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                    className="w-full"
+                    alt="post"
                   />
-                  <span className="ml-1 text-xs font-medium text-[#A8B2BE]">
-                    {post.location}
-                  </span>
                 </div>
-              </div>
-            </header>
-            <main className="w-full pb-4">
-              <div className="flex h-44 w-full flex-col items-center justify-center overflow-hidden">
-                <Image
-                  src={post.postImage}
-                  width={0}
-                  height={0}
-                  sizes="100%"
-                  className="w-full"
-                  alt="post"
-                />
-              </div>
-              <div className="px-4 py-3">
+              )}
+              {/* <div className="px-4 py-3">
                 <button
                   type="button"
                   onClick={(e) => {
@@ -99,10 +68,38 @@ export default function TravelFeedSlider({ data }: Slider) {
                 >
                   <Image src="/like.png" width={20} height={16} alt="좋아요" />
                 </button>
+              </div> */}
+              <div className="px-4 py-5">
+                <div className="inline-block rounded-lg bg-[#D2E2FF] px-2 py-1 text-xs font-semibold text-[#226AFA]">
+                  {post.city}
+                </div>
+                <p className="my-2 truncate text-base font-semibold">
+                  {post?.title}
+                </p>
+                <p className="line-clamp-3 w-full text-xs font-normal text-[##495565]">
+                  {post?.content}
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Image
+                    src="/calender.svg"
+                    width={14}
+                    height={14}
+                    alt="날짜"
+                  />
+                  <p className="text-xs">
+                    {dayjs(post?.meetingTime).format("YYYY.MM.DD")}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-xs font-normal text-[#A8B2BE]"
+                >
+                  {post.userNickname}님 작성
+                </button>
               </div>
-              <p className="line-clamp-3 w-full px-4 text-xs font-light text-[#667282]">
-                {post.content}
-              </p>
             </main>
           </Link>
         </SwiperSlide>

@@ -25,13 +25,37 @@ export default function Login() {
   async function onSubmit(data: any) {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_API}/api/v1/users/login `,
+        `${process.env.NEXT_PUBLIC_SERVER_API}/api/v1/users/login`,
         data,
       );
 
       if (response.status === 200) {
-        // window.localStorage.setItem("userInfo", { email: response.data.email, session: response.data.email });
-        router.push("/home");
+        await getUserInfo(response.data.userEmail);
+        window.localStorage.setItem(
+          "userInfo",
+          JSON.stringify({
+            email: response.data.userEmail,
+            session: response.data.sessionId,
+          }),
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function getUserInfo(email: string) {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_API}/api/v1/users/mypage/user-email/${email}`,
+      );
+
+      if (response.status === 200) {
+        if (!response.data.verificationYn) {
+          router.push("/onboarding");
+        } else {
+          router.push("/home");
+        }
       }
     } catch (error) {
       console.error(error);

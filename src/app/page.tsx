@@ -15,7 +15,7 @@ export default function Home() {
         router.push("/home");
       }
     }, 3000);
-  }, [router]);
+  }, []);
 
   return <Loading />;
 }

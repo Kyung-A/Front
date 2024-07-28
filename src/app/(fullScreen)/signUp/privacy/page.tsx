@@ -23,7 +23,7 @@ export default function Privacy() {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const { register, handleSubmit, watch } = useForm<Privacy>({
+  const { register, handleSubmit, watch, setValue } = useForm<Privacy>({
     defaultValues: {
       email: "",
       password: "",
@@ -33,7 +33,6 @@ export default function Privacy() {
     },
   });
 
-  // TODO
   async function onSubmit(data: any) {
     try {
       const response = await axios.post(
@@ -56,16 +55,28 @@ export default function Privacy() {
     if (!e.target.files?.length) return;
 
     const imageFile = e.target.files[0];
-    const reader = new FileReader();
+    await uploadToS3(imageFile);
+  }
 
-    reader.addEventListener("load", (e: ProgressEvent<any>) => {
-      if (!e || !e.target) return;
-      if (typeof e.target.result !== "string") return;
+  async function uploadToS3(file: any) {
+    const formData = new FormData();
+    formData.append("image", file);
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_API}/s3/image`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
+      );
 
-      setFile(e.target.result);
-    });
-
-    reader.readAsDataURL(imageFile);
+      setValue("imgPath", response.data);
+      setFile(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const watchAllFields = watch();

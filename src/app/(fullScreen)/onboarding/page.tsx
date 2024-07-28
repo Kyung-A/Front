@@ -49,15 +49,15 @@ function StepForm({
 }: StepComp) {
   const router = useRouter();
 
-  // TODO
   async function onSubmitType(type: string) {
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_API}/s3/image`,
+      const { email } = JSON.parse(
+        window.localStorage.getItem("userInfo") as string,
+      );
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_API}/api/v1/users/onboard/user-email/${email}/onboard/${type}`,
         { triptype: type },
       );
-
-      return console.log(response);
     } catch (error) {
       console.error(error);
     }

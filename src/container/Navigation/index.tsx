@@ -6,7 +6,7 @@ export default function Navigation() {
     <nav className="sticky bottom-0 z-50 mt-auto box-border h-24 w-full bg-white p-5 shadow-[4px_0px_12px_0px_rgba(0,0,0,0.04)]">
       <ul className="flex h-full w-full items-center justify-between">
         <li>
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <Link href="/home" className="flex flex-col items-center gap-2">
             <div className="w-6">
               <Image
                 src="/home.png"
